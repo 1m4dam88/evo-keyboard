@@ -602,7 +602,7 @@ pcbs:
         what: ceoloide/display_nice_view
         where: 
           ref: matrix_inner_num
-          shift: [19.5,-13]
+          shift: [20,-13]
         params:
           VCC: VCC
           GND: GND
@@ -613,7 +613,7 @@ pcbs:
         what: ceoloide/power_switch_smd_side 
         where: 
           ref: matrix_inner_num
-          shift: [20,5.5]
+          shift: [20,6.5]
           rotate: 90
         params:
           side: F
@@ -790,7 +790,7 @@ pcbs:
         what: ceoloide/display_nice_view
         where: 
           ref: mirror_matrix_inner_num
-          shift: [19.5,-13]
+          shift: [20,-13]
         params:
           VCC: VCC
           GND: GND
@@ -801,7 +801,7 @@ pcbs:
         what: ceoloide/power_switch_smd_side 
         where: 
           ref: mirror_matrix_inner_num
-          shift: [20,5.5]
+          shift: [20,6.5]
           rotate: 270
         params:
           side: F
@@ -991,4 +991,5 @@ cases:
     - what: case
       name: right_wall
       operation: add
+
 
