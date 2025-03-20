@@ -1,4 +1,5 @@
 
+
 meta:
   engine: 4.1.0
 units:
@@ -42,12 +43,12 @@ points:
         ring:
           key:
             origin: [0, 8]
-            stagger: 2
+            stagger: 2.5
             column_net: row2
           rows.mod.skip: true
         middle:
           key:
-            stagger: 2.5
+            stagger: 3
             column_net: row3
           rows:
             mod:
@@ -55,7 +56,7 @@ points:
             mod.skip: true
         index:
           key:
-            stagger: -2
+            stagger: -2.5
             column_net: row4
           rows:
             mod:
@@ -94,25 +95,25 @@ points:
           key:
             row_net: row4
             column_net: col2
-            shift: [2]
+            shift: [2,1]
         home:
           key:
             row_net: row4
             column_net: col3
-            shift: [2]
+            shift: [2,1]
         layer:
           key:
             spread: 21.25
-            splay: -15
-            stagger: -4
+            splay: 0
+            stagger: -3
             row_net: row4 
-            shift: [3,2]
+            shift: [,2]
             column_net: col4
         space:
           key:
-            spread: 24
-            splay: -10
-            stagger: -0
+            spread: 23
+            splay: -30
+            stagger: -5
             rotate: 90
             width: 1.5kx
             row_net: row4
@@ -172,33 +173,33 @@ outlines:
           shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_pinky_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_pinky_num
           shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_ring_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_ring_num
           shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_middle_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_middle_num
-          shift: [+kx/2+1, ky/2+1]
+          shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_index_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_index_num
-          shift: [+kx/2+1, ky/2+1]
+          shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_inner_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_inner_num
-          shift: [+kx/2+1, ky/2+1]
+          shift: [+kx/2+3+mcu_padding+mcu_width+0.25, ky/2+1]
         - ref: matrix_inner_home
-          shift: [-kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+          shift: [kx/2+3+mcu_padding+mcu_width+0.25, ky/2+1]
         - ref: matrix_inner_home
-          shift: [+kx/1.5+mcu_padding+mcu_width+0.25, ky/1.5-7]
+          shift: [kx/2+3+mcu_padding+mcu_width+0.25, ky/2+1]
 
         - ref: thumbs_space_cluster
           shift: [kx/2+1, -ky/2-1]
@@ -209,13 +210,13 @@ outlines:
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
           shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [kx/2-2, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [-kx/2-1, -ky/2-1]
+          shift: [-kx/2-2, -ky/2-1]
         - ref: matrix_pinky_bottom
           shift: [kx/2-1, -ky/2-1]
         - ref: matrix_pinky_bottom
@@ -272,13 +273,13 @@ outlines:
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
           shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [kx/2-2, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [-kx/2-1, -ky/2-1]
+          shift: [-kx/2-2, -ky/2-1]
         - ref: matrix_pinky_bottom
           shift: [kx/2-1, -ky/2-1]
         - ref: matrix_pinky_bottom
@@ -302,7 +303,8 @@ outlines:
     - what: rectangle
       where: [mcu]
       size: [45, 21]
-      bound: false
+      fillet: 2
+      bound: 
   switchplate:
     - what: outline
       name: switchplate_base
