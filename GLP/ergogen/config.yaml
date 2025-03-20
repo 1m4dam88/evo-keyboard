@@ -235,24 +235,24 @@ outlines:
           shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_pinky_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_pinky_num
           shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_ring_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_ring_num
           shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_middle_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_middle_num
-          shift: [+kx/2+1, ky/2+1]
+          shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_index_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_index_num
-          shift: [+kx/2+1, ky/2+1]
+          shift: [+kx/2-1, ky/2+1]
 
         - ref: matrix_inner_num
           shift: [-kx/2+1, ky/2+1]
