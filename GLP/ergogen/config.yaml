@@ -1,3 +1,4 @@
+
 meta:
   engine: 4.1.0
 units:
@@ -10,12 +11,16 @@ units:
   dpy: ky + 8
   scrollwheel_width: 17
   scrollwheel_height: 14
+  encoder_width: 14
+  encoder_height: 13.2
   mcu_height: 34
   mcu_width: 18
   mcu_padding: 1.5
   switchplate_switch_cutout: 14
   switchplate_scrollwheel_cutout_x: 17.5
   switchplate_scrollwheel_cutout_y: 14.5
+  switchplate_encoder_cutout_x: 14.5
+  switchplate_encoder_cutout_y: 13.5
 points:
   mirror: &mirror
     ref: matrix_inner_num
@@ -37,12 +42,12 @@ points:
         ring:
           key:
             origin: [0, 8]
-            stagger: 1
+            stagger: 2
             column_net: row2
           rows.mod.skip: true
         middle:
           key:
-            stagger: 1.5
+            stagger: 2.5
             column_net: row3
           rows:
             mod:
@@ -50,7 +55,7 @@ points:
             mod.skip: true
         index:
           key:
-            stagger: -2.5
+            stagger: -2
             column_net: row4
           rows:
             mod:
@@ -82,32 +87,37 @@ points:
       key:
         tags: [switch]
       anchor:
-        ref: matrix_inner_mod
-        shift: [-53,0]
+        ref: matrix_index_bottom
+        shift: [-30, -20]
       columns:
         inner:
           key:
             row_net: row4
             column_net: col2
-            shift: [1,2]
+            shift: [2]
         home:
           key:
             row_net: row4
             column_net: col3
-            shift: [3,1]
+            shift: [2]
         layer:
           key:
-            row_net: row4
+            spread: 21.25
+            splay: -15
+            stagger: -3
+            row_net: row4 
+            shift: [3,2]
             column_net: col4
-            splay: -10
-            shift: [5,-1]
         space:
           key:
+            spread: 24
+            splay: -10
+            stagger: -0
+            rotate: 90
             width: 1.5kx
             row_net: row4
+            shift: [,9]
             column_net: col5
-            splay: 80
-            shift: [10,-10]
       rows:
         cluster:
     scrollwheel:
@@ -121,24 +131,25 @@ points:
             width: scrollwheel_width
             height: scrollwheel_height
             name: scrollwheel
-            shift: [20,-5]
+            shift: [20,-1]
       rows:
         scrollwheel:
           row_net: row4
     encoder:
       anchor:
-        ref: matrix_inner_mod
-        shift: [-53,0]
+        ref: matrix_inner_home
       columns:
-        inner:
+        encoder:
           key:
             tags: [encoder]
-            row_net: row4
-            column_net: col2
-            shift: [1,2]
+            column_net: col5
+            shift: [20,-1.5]
             name: encoder
+            width: encoder_width
+            height: encoder_height
       rows:
-        cluster:
+        scrollwheel:
+          row_net: row4
     mcu:
       anchor:
         ref: matrix_inner_num
@@ -150,74 +161,152 @@ points:
             height: mcu_width
             rotate: -90
             shift: [kx+mcu_padding, -mcu_width/2-0.3]
+    board_mid_right_corner:
+      anchor:
+        - ref: thumbs_space_cluster
+          shift: [kx/2+1, ky/2]
+          affect: [x,y]
+
+    board_top_right:
+      anchor:
+        - ref: board_mid_right_corner
+          affect: x
+        - ref: matrix_inner_num
+          shift: [kx+15.3+1, ky/2+1]
+          affect: y
 outlines:
   board_outline:
     - what: polygon
       points:
         - ref: matrix_outer_num
-          shift: [-0.5px,0.5py]
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_outer_num
+          shift: [+kx/2-1, ky/2+1]
+
         - ref: matrix_pinky_num
-          shift: [-0.5px,0.5py]
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_pinky_num
+          shift: [+kx/2-1, ky/2+1]
+
+        - ref: matrix_ring_num
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_ring_num
+          shift: [+kx/2-1, ky/2+1]
+
         - ref: matrix_middle_num
-          shift: [-0.5px, 0.5py]
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_middle_num
+          shift: [+kx/2+1, ky/2+1]
+
         - ref: matrix_index_num
-          shift: [-0.5px,0.65py]
+          shift: [-kx/2+1, ky/2+1]
+        - ref: matrix_index_num
+          shift: [+kx/2+1, ky/2+1]
+
         - ref: matrix_inner_num
-          shift: [0.5px+mcu_padding+mcu_width+0.25,0.5py]
+          shift: [-kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+        - ref: matrix_inner_num
+          shift: [+kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
         - ref: matrix_inner_home
-          shift: [0.5px+mcu_padding+mcu_width+0.25,-0.5py]
-        - ref: matrix_inner_bottom
-          shift: [0.5px+mcu_padding+mcu_width,-0.5py]
+          shift: [-kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+        - ref: matrix_inner_home
+          shift: [+kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+
         - ref: thumbs_space_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2+1, -ky/2-1]
+        - ref: thumbs_space_cluster
+          shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2-1, -ky/2-1]
+        - ref: thumbs_layer_cluster
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2-1, -ky/2-1]
+        - ref: thumbs_home_cluster
+          shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2-1, -ky/2-1]
+        - ref: thumbs_inner_cluster
+          shift: [-kx/2-1, -ky/2-1]
+        - ref: matrix_pinky_bottom
+          shift: [kx/2-1, -ky/2-1]
+        - ref: matrix_pinky_bottom
+          shift: [-kx/2-1, -ky/2-1]
         - ref: matrix_outer_bottom
-          shift: [-0.5px,-0.5py]
-        - ref: matrix_outer_home
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2+1, -ky/2-1]
+        - ref: matrix_outer_bottom
+          shift: [-kx/2-1, -ky/2-1]
   switchplate_base:
     - what: polygon
       points:
         - ref: matrix_outer_num
-          shift: [-0.5px,0.5py]
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_outer_num
+          shift: [+kx/2-1, ky/2+1]
+
         - ref: matrix_pinky_num
-          shift: [-0.5px,0.5py]
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_pinky_num
+          shift: [+kx/2-1, ky/2+1]
+
+        - ref: matrix_ring_num
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_ring_num
+          shift: [+kx/2-1, ky/2+1]
+
         - ref: matrix_middle_num
-          shift: [-0.5px, 0.5py]
+          shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_middle_num
+          shift: [+kx/2+1, ky/2+1]
+
         - ref: matrix_index_num
-          shift: [-0.5px,0.65py]
+          shift: [-kx/2+1, ky/2+1]
+        - ref: matrix_index_num
+          shift: [+kx/2+1, ky/2+1]
+
         - ref: matrix_inner_num
-          shift: [0.5px+mcu_padding+mcu_width+0.25,0.5py]
+          shift: [-kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+        - ref: matrix_inner_num
+          shift: [+kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
         - ref: matrix_inner_home
-          shift: [0.5px+mcu_padding+mcu_width+0.25,-0.5py]
-        - ref: matrix_inner_bottom
-          shift: [0.5px+mcu_padding+mcu_width,-0.5py]
+          shift: [-kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+        - ref: matrix_inner_home
+          shift: [+kx/2+1+mcu_padding+mcu_width+0.25, ky/2+1]
+
         - ref: thumbs_space_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2+1, -ky/2-1]
+        - ref: thumbs_space_cluster
+          shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2-1, -ky/2-1]
+        - ref: thumbs_layer_cluster
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2-1, -ky/2-1]
+        - ref: thumbs_home_cluster
+          shift: [-kx/2-1, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2-1, -ky/2-1]
+        - ref: thumbs_inner_cluster
+          shift: [-kx/2-1, -ky/2-1]
+        - ref: matrix_pinky_bottom
+          shift: [kx/2-1, -ky/2-1]
+        - ref: matrix_pinky_bottom
+          shift: [-kx/2-1, -ky/2-1]
         - ref: matrix_outer_bottom
-          shift: [-0.5px,-0.5py]
-        - ref: matrix_outer_home
-          shift: [-0.5px,-0.5py]
+          shift: [kx/2+1, -ky/2-1]
+        - ref: matrix_outer_bottom
+          shift: [-kx/2-1, -ky/2-1]
+
   switch_cutout:
     - what: rectangle
       where: [/^matrix_.*/,/^thumbs_.*/]
       size: switchplate_switch_cutout
       bound: false
-  scrollwheel_cutout:
+  encoder_cutout:
     - what: rectangle
-      where: [scrollwheel]
-      size: [switchplate_scrollwheel_cutout_x, switchplate_scrollwheel_cutout_y]
+      where: [encoder]
+      size: [switchplate_encoder_cutout_x, switchplate_encoder_cutout_y]
       bound: false
   screen_cutout:
     - what: rectangle
@@ -231,7 +320,7 @@ outlines:
       name: switch_cutout
       operation: subtract
     - what: outline
-      name: scrollwheel_cutout
+      name: encoder_cutout
       operation: subtract
     - what: outline
       name: screen_cutout
@@ -248,6 +337,7 @@ pcbs:
           solder: false
           from: "{{column_net}}"
           to: "{{colrow}}"
+          keycap_3dmodel_filename: ${EG_INFUSED_KIM_3D_MODELS}/Choc_V1_Keycap_MBK_Black_1u.step
         adjust:
           rotate: 180
       diode_main:
@@ -283,7 +373,7 @@ pcbs:
         what: ceoloide/diode_tht_sod123
         where:
           ref: matrix_inner_home
-          shift: [20, -11]
+          shift: [20, -10]
         params: 
           from: "{{colrow}}"
           to: "{{row_net}}"
@@ -291,6 +381,38 @@ pcbs:
         what: ceoloide/rotary_encoder_ec11_ec12
         where:
           ref: encoder
+        params:
+          A: ENCA
+          B: GND
+          C: ENCB
+        adjust:
+          rotate: 270
+          shift: [-0.5,0]
+      encoder2:
+        what: ceoloide/rotary_encoder_ec11_ec12
+        where:
+          ref: thumbs_inner_cluster
+        params:
+          A: ENCC
+          B: GND
+          C: ENCD
+        adjust:
+          rotate: 255
+          shift: [-0.5,-1]
+      scrollwheel2:
+        what: scrollwheel
+        where:
+          ref: thumbs_inner_cluster
+        params:
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+          A: ENCC
+          B: GND
+          C: ENCD
+          D: UNDEF
+        adjust:
+          rotate: 90
+          shift: [0,2]
       controller:
         what: ceoloide/mcu_supermini_nrf52840
         where: 
@@ -321,7 +443,10 @@ pcbs:
           P7: col2
           P8: col3
           P9: col4
+          P101_label: ENCC
+          P102_label: ENCD
           reverse_mount: true
+          include_extra_pins: true
       niceview:
         what: ceoloide/display_nice_view
         where: 
@@ -337,9 +462,9 @@ pcbs:
         what: ceoloide/power_switch_smd_side 
         where: 
           ref: matrix_inner_home
-          shift: [28,-17]
+          shift: [28.5,-13]
         params:
-          side: F
+          side: B
           from: ON_P
           to: BAT_RAW
           invert_behavior: false
@@ -356,12 +481,13 @@ pcbs:
         what: ceoloide/reset_switch_smd_side
         where: 
           ref: matrix_inner_home
-          shift: [28.5, 9.5]
+          shift: [28.5, -23]
           rotate: 270
         params:
           include_bosses: true
           from: RST
           to: GND
+          side: B
       left_text:
         what: ceoloide/utility_text
         where:
