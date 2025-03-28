@@ -110,10 +110,9 @@ points:
             column_net: col4
         space:
           key:
-            spread: 21
-            splay: -30
-            stagger: -4
-            rotate: 90
+            spread: 38
+            splay: 85
+            stagger: 5
             width: 1.5kx
             row_net: row4
             shift: [,10.5]
@@ -167,51 +166,51 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2-1, ky/2+2]
         - ref: matrix_outer_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_pinky_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_pinky_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_ring_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_ring_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_middle_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_middle_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_index_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_index_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_inner_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_inner_num
-          shift: [+kx/2+4+mcu_padding+mcu_width+0.25+2, ky/2+1]
+          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: matrix_inner_home
-          shift: [+kx/2+4+mcu_padding+mcu_width+0.25+2  , ky/2+1]
+          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2  , ky/2]
         - ref: matrix_inner_home
-          shift: [+kx/2+4+mcu_padding+mcu_width+0.25+2, ky/2-5]
+          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-5]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+4, -ky/2-1]
+          shift: [kx/2+1, -ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [-kx/2-4, -ky/2-1]
+          shift: [-kx/2-5, -ky/2-2]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: thumbs_home_cluster
-          shift: [-kx/2-2, -ky/2-2]
+          shift: [-kx/2+1, -ky/2-2]
         - ref: thumbs_home_cluster
-          shift: [-kx/2-2, -ky/2-2]
+          shift: [-kx/2+1, -ky/2-2]
         - ref: thumbs_inner_cluster
           shift: [kx/2-2, -ky/2-1]
         - ref: thumbs_inner_cluster
@@ -293,51 +292,51 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2-1, ky/2+2]
         - ref: matrix_outer_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_pinky_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_pinky_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_ring_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_ring_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_middle_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_middle_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_index_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_index_num
-          shift: [+kx/2-1, ky/2+1]
+          shift: [+kx/2-1, ky/2+2]
 
         - ref: matrix_inner_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2+2]
         - ref: matrix_inner_num
-          shift: [+kx/2+2, ky/2+1]
+          shift: [+kx/2+2, ky/2+2]
         - ref: matrix_inner_home
-          shift: [-kx/2+4+mcu_padding+mcu_width+0.25  , ky/2]
+          shift: [-kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: matrix_inner_home
-          shift: [+kx/2+4+mcu_padding+mcu_width+0.25+2, ky/2-4.3]
+          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-4.3]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+4, -ky/2-1]
+          shift: [kx/2+1, -ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [-kx/2-4, -ky/2-1]
+          shift: [-kx/2-5, -ky/2-2]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: thumbs_home_cluster
-          shift: [-kx/2-2, -ky/2-2]
+          shift: [-kx/2+1, -ky/2-2]
         - ref: thumbs_home_cluster
-          shift: [-kx/2-2, -ky/2-2]
+          shift: [-kx/2+1, -ky/2-2]
         - ref: thumbs_inner_cluster
           shift: [kx/2-2, -ky/2-1]
         - ref: thumbs_inner_cluster
@@ -365,7 +364,7 @@ outlines:
     - what: rectangle
       where: [mcu]
       adjust:
-        shift: [0,1]
+        shift: [0,2]
       size: [45, 21]
       fillet: 2
       bound: 
@@ -730,5 +729,3 @@ pcbs:
           width: 2
           height: 2    
 cases:
-
-
