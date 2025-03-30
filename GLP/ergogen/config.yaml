@@ -17,8 +17,8 @@ units:
   mcu_width: 18
   mcu_padding: 1.5
   switchplate_switch_cutout: 14
-  switchplate_scrollwheel_cutout_x: 17.5
-  switchplate_scrollwheel_cutout_y: 14.5
+  switchplate_scrollwheel_cutout_x: 18
+  switchplate_scrollwheel_cutout_y: 15
   switchplate_encoder_cutout_x: 14.5
   switchplate_encoder_cutout_y: 13.5
 points:
@@ -27,6 +27,7 @@ points:
     distance: 5kx
   zones:
     matrix:
+      anchor.shift: [50, -150]
       columns:
         outer:
           rows:
@@ -111,9 +112,9 @@ points:
             column_net: col4
         space:
           key:
-            spread: 38
-            splay: 85
-            stagger: 5
+            spread: 34
+            splay: 65
+            stagger:  0
             width: 1.5kx
             row_net: row4
             shift: [,10.5]
@@ -164,35 +165,35 @@ points:
 outlines:
   board_outline:
     - what: polygon
-      fillet: 2
+      fillet: 0.99
       points:
         - ref: matrix_outer_num
-          shift: [-kx/2-1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.25]
         - ref: matrix_outer_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [kx/2-1, ky/2+1.25] 
 
         - ref: matrix_pinky_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.25]
         - ref: matrix_pinky_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2-1, ky/2+1.25]
 
         - ref: matrix_ring_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.5]
         - ref: matrix_ring_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2-1, ky/2+1.5]
 
         - ref: matrix_middle_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+2]
         - ref: matrix_middle_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2+1, ky/2+2]
 
         - ref: matrix_index_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2+1, ky/2+1.25]
         - ref: matrix_index_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2+1, ky/2+1.25]
 
         - ref: matrix_inner_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2]
         - ref: matrix_inner_num
           shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: matrix_inner_home
@@ -203,7 +204,7 @@ outlines:
         - ref: thumbs_space_cluster
           shift: [kx/2+1, -ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [-kx/2-5, -ky/2-2]
+          shift: [-kx/2-3, -ky/2-2]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: thumbs_layer_cluster
@@ -230,32 +231,32 @@ outlines:
       fillet: 2
       points:
         - ref: mirror_matrix_outer_num
-          shift: [-kx/2-1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.25]
         - ref: mirror_matrix_outer_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [kx/2-1, ky/2+1.25] 
 
         - ref: mirror_matrix_pinky_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.25]
         - ref: mirror_matrix_pinky_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2-1, ky/2+1.25]
 
         - ref: mirror_matrix_ring_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.5]
         - ref: mirror_matrix_ring_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2-1, ky/2+1.5]
 
         - ref: mirror_matrix_middle_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+2]
         - ref: mirror_matrix_middle_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2+1, ky/2+2]
 
         - ref: mirror_matrix_index_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2+1, ky/2+1.25]
         - ref: mirror_matrix_index_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2+1, ky/2+1.25]
 
         - ref: mirror_matrix_inner_num
-          shift: [-kx/2+1, ky/2+1]
+          shift: [-kx/2+1, ky/2]
         - ref: mirror_matrix_inner_num
           shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: mirror_matrix_inner_home
@@ -266,7 +267,7 @@ outlines:
         - ref: mirror_thumbs_space_cluster
           shift: [kx/2+1, -ky/2-2]
         - ref: mirror_thumbs_space_cluster
-          shift: [-kx/2-5, -ky/2-2]
+          shift: [-kx/2-3, -ky/2-2]
         - ref: mirror_thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: mirror_thumbs_layer_cluster
@@ -290,46 +291,46 @@ outlines:
 
   switchplate_base:
     - what: polygon
-      fillet: 2
+      fillet: 0.99
       points:
         - ref: matrix_outer_num
-          shift: [-kx/2-1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.25]
         - ref: matrix_outer_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [kx/2-1, ky/2+1.25] 
 
         - ref: matrix_pinky_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.25]
         - ref: matrix_pinky_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2-1, ky/2+1.25]
 
         - ref: matrix_ring_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+1.5]
         - ref: matrix_ring_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2-1, ky/2+1.5]
 
         - ref: matrix_middle_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2-1, ky/2+2]
         - ref: matrix_middle_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2+1, ky/2+2]
 
         - ref: matrix_index_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2+1, ky/2+1.25]
         - ref: matrix_index_num
-          shift: [+kx/2-1, ky/2+2]
+          shift: [+kx/2+1, ky/2+1.25]
 
         - ref: matrix_inner_num
-          shift: [-kx/2+1, ky/2+2]
+          shift: [-kx/2+2, ky/2]
         - ref: matrix_inner_num
-          shift: [+kx/2+2, ky/2+2]
+          shift: [+kx/2+2, ky/2]
         - ref: matrix_inner_home
           shift: [-kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: matrix_inner_home
-          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-4.3]
+          shift: [+kx/2+3+mcu_padding+mcu_width+0.25+2, ky/2-2.3]
 
         - ref: thumbs_space_cluster
           shift: [kx/2+1, -ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [-kx/2-5, -ky/2-2]
+          shift: [-kx/2-3, -ky/2-2]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-2]
         - ref: thumbs_layer_cluster
@@ -359,8 +360,15 @@ outlines:
   encoder_cutout:
     - what: rectangle
       where: [encoder]
-      size: [switchplate_encoder_cutout_x, switchplate_encoder_cutout_y]
+      size: [switchplate_scrollwheel_cutout_x, switchplate_scrollwheel_cutout_y]
       bound: false
+  scroll_cutout:
+    - what: rectangle
+      where: thumbs_inner_cluster
+      size: [switchplate_scrollwheel_cutout_x, switchplate_scrollwheel_cutout_y]
+      bound: false
+      adjust:
+        shift: [-2,0]
   screen_cutout:
     - what: rectangle
       where: [mcu]
@@ -379,19 +387,23 @@ outlines:
     - what: outline
       name: screen_cutout
       operation: subtract
+    - what: outline
+      name: scroll_cutout
+      operation: subtract
 pcbs:
   left:
+    template: kicad8
     outlines.main.outline: board_outline
     footprints:
       gateron_hotswap:
         what: ceoloide/switch_gateron_ks27_ks33
         where: [/^matrix_.*/,/^thumbs_.*/]
         params:
+          include_socket_silks: true
           hotswap: true
           solder: false
           from: "{{column_net}}"
           to: "{{colrow}}"
-          keycap_3dmodel_filename: ${EG_INFUSED_KIM_3D_MODELS}/Choc_V1_Keycap_MBK_Black_1u.step
         adjust:
           rotate: 180
       diode_main:
