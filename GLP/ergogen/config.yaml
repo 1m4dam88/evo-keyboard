@@ -1,4 +1,5 @@
 
+
 meta:
   engine: 4.1.0
 units:
@@ -396,7 +397,7 @@ pcbs:
     outlines.main.outline: board_outline
     footprints:
       gateron_hotswap:
-        what: ceoloide/switch_gateron_ks27_ks33
+        what: switch_gateron_ks27_ks33
         where: [/^matrix_.*/,/^thumbs_.*/]
         params:
           include_socket_silks: true
@@ -407,16 +408,16 @@ pcbs:
         adjust:
           rotate: 180
       diode_main:
-        what: ceoloide/diode_tht_sod123
+        what: diode_tht_sod123
         where: /^matrix_(?!(?:mod|bottom|home|top|num))./
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
           rotate: 0
-          shift: [1,9]
+          shift: [1,8.6]
       diode_thumb:
-        what: ceoloide/diode_tht_sod123
+        what: diode_tht_sod123
         where: /^thumbs_.*/
         params:
           from: "{{colrow}}"
@@ -425,7 +426,7 @@ pcbs:
           rotate: 0
           shift: [1,9]
       scrollwheel:
-        what: scrollwheel
+        what: backlog/mrzealot/scrollwheel
         where:
           ref: scrollwheel
         params:
@@ -436,7 +437,7 @@ pcbs:
           C: ENCA
           D: undef
       scroll_diode:
-        what: ceoloide/diode_tht_sod123
+        what: diode_tht_sod123
         where:
           ref: scrollwheel
           shift: [0, 8]
@@ -444,7 +445,7 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row_net}}"
       encoder:
-        what: ceoloide/rotary_encoder_ec11_ec12
+        what: rotary_encoder_ec11_ec12
         where:
           ref: encoder
         params:
@@ -457,7 +458,7 @@ pcbs:
           rotate: 270
           shift: [-0.5,0]
       encoder2:
-        what: ceoloide/rotary_encoder_ec11_ec12
+        what: rotary_encoder_ec11_ec12
         where:
           ref: thumbs_inner_cluster
         params:
@@ -467,24 +468,10 @@ pcbs:
           B: GND
           C: ENCD
         adjust:
-          rotate: 255
-          shift: [-0.5,-1]
-      scrollwheel2:
-        what: scrollwheel
-        where:
-          ref: thumbs_inner_cluster
-        params:
-          from: "{{column_net}}"
-          to: "{{colrow}}"
-          A: ENCC
-          B: GND
-          C: ENCD
-          D: UNDEF
-        adjust:
-          rotate: 90
-          shift: [0,2]
+          rotate: 0
+          shift: [0,1.2]
       controller:
-        what: ceoloide/mcu_supermini_nrf52840
+        what: mcu_supermini_nrf52840
         where: 
           ref: matrix_inner_num
           shift: [22.5,-8]
@@ -518,7 +505,7 @@ pcbs:
           reverse_mount: true
           include_extra_pins: true
       niceview:
-        what: ceoloide/display_nice_view
+        what: display_nice_view
         where: 
           ref: matrix_inner_num
           shift: [22.5,-10]
@@ -529,17 +516,18 @@ pcbs:
           SCK: SCL
           MOSI: SDA
       slider:
-        what: ceoloide/power_switch_smd_side 
+        what: power_switch_smd_side 
         where: 
           ref: matrix_inner_bottom
-          shift: [31.5,-0]
+          shift: [30.5,-0]
+          rotate: -1
         params:
           side: B
           from: ON_P
           to: BAT_RAW
           invert_behavior: false
       battery:
-        what: ceoloide/battery_connector_molex_pico_ezmate_1x02
+        what: battery_connector_molex_pico_ezmate_1x02
         where: 
           ref: matrix_inner_num
           shift: [22.5,0]
@@ -548,43 +536,53 @@ pcbs:
           BAT_P: BAT_GND
           BAT_N: ON_P
       reset_switch:
-        what: ceoloide/reset_switch_smd_side
+        what: reset_switch_smd_side
         where: 
           ref: matrix_inner_bottom
-          shift: [30.5, -10]
-          rotate: 260
+          shift: [30, -10]
+          rotate: -90
         params:
           include_bosses: true
           from: RST
           to: GND
           side: B
       left_text:
-        what: ceoloide/utility_text
+        what: utility_text
         where:
-          ref: matrix_inner_top
-          shift: [22.5,5]
+          ref: matrix_inner_bottom
+          shift: [20,3]
         params:
-          text: "Left"
+          text: "Left Side"
           thickness: 1
           knockout: true
           width: 2
           height: 2    
+      watermark:
+        what: utility_text
+        where:
+          ref: matrix_inner_bottom
+          shift: [20,-2]
+        params:
+          text: "Designed by imadam"
+          thickness: 0
+          width: 1
+          height: 1    
   right:
     outlines.main.outline: board_outline_right
     footprints:
       gateron_hotswap:
-        what: ceoloide/switch_gateron_ks27_ks33
+        what: switch_gateron_ks27_ks33
         where: [/^mirror_matrix_.*/,/^mirror_thumbs_.*/]
         params:
+          include_socket_silks: true
           hotswap: true
           solder: false
           from: "{{column_net}}"
           to: "{{colrow}}"
-          keycap_3dmodel_filename: ${EG_INFUSED_KIM_3D_MODELS}/Choc_V1_Keycap_MBK_Black_1u.step
         adjust:
           rotate: 180
       diode_main:
-        what: ceoloide/diode_tht_sod123
+        what: diode_tht_sod123
         where: /^mirror_matrix_(?!(?:mod|bottom|home|top|num))./
         params:
           from: "{{colrow}}"
@@ -593,7 +591,7 @@ pcbs:
           rotate: 0
           shift: [1,9]
       diode_thumb:
-        what: ceoloide/diode_tht_sod123
+        what: diode_tht_sod123
         where: /^mirror_thumbs_.*/
         params:
           from: "{{colrow}}"
@@ -602,7 +600,7 @@ pcbs:
           rotate: 0
           shift: [1,9]
       scrollwheel:
-        what: scrollwheel
+        what: backlog/mrzealot/scrollwheel
         where:
           ref: mirror_scrollwheel
         params:
@@ -613,7 +611,7 @@ pcbs:
           C: ENCA
           D: undef
       scroll_diode:
-        what: ceoloide/diode_tht_sod123
+        what: diode_tht_sod123
         where:
           ref: mirror_scrollwheel
           shift: [0, 8]
@@ -621,7 +619,7 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row_net}}"
       encoder:
-        what: ceoloide/rotary_encoder_ec11_ec12
+        what: rotary_encoder_ec11_ec12
         where:
           ref: mirror_encoder
         params:
@@ -634,7 +632,7 @@ pcbs:
           rotate: 90
           shift: [-0.5,0]
       encoder2:
-        what: ceoloide/rotary_encoder_ec11_ec12
+        what: rotary_encoder_ec11_ec12
         where:
           ref: mirror_thumbs_inner_cluster
         params:
@@ -647,7 +645,7 @@ pcbs:
           rotate: -255
           shift: [0.5,-1]
       scrollwheel2:
-        what: scrollwheel
+        what: backlog/mrzealot/scrollwheel
         where:
           ref: mirror_thumbs_inner_cluster
         params:
@@ -661,7 +659,7 @@ pcbs:
           rotate: 270
           shift: [0,2]
       controller:
-        what: ceoloide/mcu_supermini_nrf52840
+        what: mcu_supermini_nrf52840
         where: 
           ref: mirror_matrix_inner_num
           shift: [22.5,-8]
@@ -695,18 +693,19 @@ pcbs:
           reverse_mount: true
           include_extra_pins: true
       niceview:
-        what: ceoloide/display_nice_view
+        what: display_nice_view
         where: 
           ref: mirror_matrix_inner_num
           shift: [22.5,-10]
         params:
+          side: B
           VCC: VCC
           GND: GND
           CS: CS
           SCK: SCL
           MOSI: SDA
       slider:
-        what: ceoloide/power_switch_smd_side 
+        what: power_switch_smd_side 
         where: 
           ref: mirror_matrix_inner_bottom
           shift: [31.5,-0]
@@ -717,7 +716,7 @@ pcbs:
           to: BAT_RAW
           invert_behavior: false
       battery:
-        what: ceoloide/battery_connector_molex_pico_ezmate_1x02
+        what: battery_connector_molex_pico_ezmate_1x02
         where: 
           ref: mirror_matrix_inner_num
           shift: [22.5,0]
@@ -726,7 +725,7 @@ pcbs:
           BAT_P: BAT_GND
           BAT_N: ON_P
       reset_switch:
-        what: ceoloide/reset_switch_smd_side
+        what: reset_switch_smd_side
         where: 
           ref: mirror_matrix_inner_bottom
           shift: [30.5, -10]
@@ -737,7 +736,7 @@ pcbs:
           to: GND
           side: B
       right_text:
-        what: ceoloide/utility_text
+        what: utility_text
         where:
           ref: mirror_matrix_inner_top
           shift: [22.5,5]
