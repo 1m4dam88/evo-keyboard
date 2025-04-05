@@ -425,17 +425,6 @@ pcbs:
         adjust:
           rotate: 0
           shift: [1,9]
-      scrollwheel:
-        what: backlog/mrzealot/scrollwheel
-        where:
-          ref: scrollwheel
-        params:
-          from: "{{column_net}}"
-          to: "{{colrow}}"
-          A: ENCA
-          B: GND
-          C: ENCA
-          D: undef
       scroll_diode:
         what: diode_tht_sod123
         where:
@@ -504,6 +493,17 @@ pcbs:
           P102: ENCD
           reverse_mount: true
           include_extra_pins: true
+      battery_pads:
+        what: backlog/infused-kim/pads
+        where:
+          ref: matrix_inner_num
+          shift: [18, 7]
+        params:
+          pads: 2
+          net_1: BAT_RAW
+          net_2: BAT_GND
+          label_1: '+'
+          label_2: '-'
       niceview:
         what: display_nice_view
         where: 
@@ -530,11 +530,19 @@ pcbs:
         what: battery_connector_molex_pico_ezmate_1x02
         where: 
           ref: matrix_inner_num
-          shift: [22.5,0]
+          shift: [22.5,-2]
         params:
-          reversible: true
+          side: B
           BAT_P: BAT_GND
           BAT_N: ON_P
+          include_silkscreen: false
+      battery_icon:
+        what: backlog/infused-kim/icon_bat
+        where:
+          ref: matrix_inner_num
+          shift: [22.5,3]
+        params:
+          side: B
       reset_switch:
         what: reset_switch_smd_side
         where: 
@@ -567,6 +575,70 @@ pcbs:
           thickness: 0
           width: 1
           height: 1    
+      bottom_text:
+        what: utility_text
+        where:
+          ref: thumbs_layer_cluster
+          shift: [0,-6]
+        params:
+          mirrored: true
+          side: B
+          text: "Bottom"
+          thickness: 1
+          knockout: true
+          width: 1.5
+          height: 1.5
+      reset_text:
+        what: utility_text
+        where:
+          ref: matrix_inner_bottom
+          shift: [23.5 , -10]
+        params:
+          mirrored: true
+          side: B
+          text: "← Reset"
+          thickness: 1
+          knockout: true
+          width: 1
+          height: 1
+      power_text:
+        what: utility_text
+        where:
+          ref: matrix_inner_bottom
+          shift: [24.5, 0]
+        params:
+          mirrored: true
+          side: B
+          text: "← Power"
+          thickness: 1
+          knockout: true
+          width: 1
+          height: 1
+      mcu_text:
+        what: utility_text
+        where:
+          ref: matrix_inner_num
+          shift: [22.5, -5]
+          rotate: 90
+        params:
+          side: F
+          text: "Controller"
+          thickness: 1
+          knockout: true
+          width: 2
+          height: 2
+      encoder_text:
+        what: utility_text
+        where:
+          ref: matrix_inner_home
+          shift: [21.5, -3]
+        params:
+          side: F
+          text: "Encoder"
+          thickness: 1
+          knockout: true
+          width: 1.5
+          height: 1.5
   right:
     outlines.main.outline: board_outline_right
     footprints:
