@@ -227,69 +227,6 @@ outlines:
         - ref: matrix_outer_bottom
           shift: [-kx/2-1, -ky/2-1]
 
-  board_outline_right:
-    - what: polygon
-      fillet: 2
-      points:
-        - ref: mirror_matrix_outer_num
-          shift: [-kx/2-1, ky/2+1.25]
-        - ref: mirror_matrix_outer_num
-          shift: [kx/2-1, ky/2+1.25] 
-
-        - ref: mirror_matrix_pinky_num
-          shift: [-kx/2-1, ky/2+1.25]
-        - ref: mirror_matrix_pinky_num
-          shift: [+kx/2-1, ky/2+1.25]
-
-        - ref: mirror_matrix_ring_num
-          shift: [-kx/2-1, ky/2+1.5]
-        - ref: mirror_matrix_ring_num
-          shift: [+kx/2-1, ky/2+1.5]
-
-        - ref: mirror_matrix_middle_num
-          shift: [-kx/2-1, ky/2+2]
-        - ref: mirror_matrix_middle_num
-          shift: [+kx/2+1, ky/2+2]
-
-        - ref: mirror_matrix_index_num
-          shift: [-kx/2+1, ky/2+1.25]
-        - ref: mirror_matrix_index_num
-          shift: [+kx/2+1, ky/2+1.25]
-
-        - ref: mirror_matrix_inner_num
-          shift: [-kx/2+1, ky/2]
-        - ref: mirror_matrix_inner_num
-          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
-        - ref: mirror_matrix_inner_home
-          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2  , ky/2]
-        - ref: mirror_matrix_inner_home
-          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-5]
-
-        - ref: mirror_thumbs_space_cluster
-          shift: [kx/2+1, -ky/2-2]
-        - ref: mirror_thumbs_space_cluster
-          shift: [-kx/2-3, -ky/2-2]
-        - ref: mirror_thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-2]
-        - ref: mirror_thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-2]
-        - ref: mirror_thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-2]
-        - ref: mirror_thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-2]
-        - ref: mirror_thumbs_inner_cluster
-          shift: [kx/2-2, -ky/2-1]
-        - ref: mirror_thumbs_inner_cluster
-          shift: [-kx/2-2, -ky/2-1]
-        - ref: mirror_matrix_pinky_bottom
-          shift: [kx/2-1, -ky/2-1]
-        - ref: mirror_matrix_pinky_bottom
-          shift: [-kx/2-1, -ky/2-1]
-        - ref: mirror_matrix_outer_bottom
-          shift: [kx/2+1, -ky/2-1]
-        - ref: mirror_matrix_outer_bottom
-          shift: [-kx/2-1, -ky/2-1]
-
   switchplate_base:
     - what: polygon
       fillet: 0.99
@@ -320,13 +257,13 @@ outlines:
           shift: [+kx/2+1, ky/2+1.25]
 
         - ref: matrix_inner_num
-          shift: [-kx/2+2, ky/2]
+          shift: [-kx/2+1, ky/2]
         - ref: matrix_inner_num
-          shift: [+kx/2+2, ky/2]
+          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: matrix_inner_home
           shift: [-kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
         - ref: matrix_inner_home
-          shift: [+kx/2+3+mcu_padding+mcu_width+0.25+2, ky/2-2.3]
+          shift: [+kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-2.3]
 
         - ref: thumbs_space_cluster
           shift: [kx/2+1, -ky/2-2]
