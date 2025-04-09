@@ -109,8 +109,8 @@ points:
         space:
           key:
             spread: 22
-            splay: -10
-            stagger:  -3
+            splay: -5
+            stagger:  -1
             width: 1kx
             row_net: row4
             shift: [,]
@@ -202,17 +202,17 @@ outlines:
           shift: [kx/2+1.5+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1,-ky/2-1]
+          shift: [kx/2+1,-ky/2]
         - ref: thumbs_space_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [kx/2-1, -ky/2]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-2]
+          shift: [kx/2-1, -ky/2-4]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-2]
+          shift: [kx/2-1, -ky/2-4]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-4]
+          shift: [-kx/2+1, -ky/2-5]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-4]
+          shift: [-kx/2+1, -ky/2-5]
         - ref: thumbs_inner_cluster
           shift: [-kx/2-2, -ky/2-3]
         - ref: thumbs_inner_cluster
@@ -265,17 +265,17 @@ outlines:
           shift: [kx/2+1.5+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1,-ky/2-1]
+          shift: [kx/2+1,-ky/2]
         - ref: thumbs_space_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [kx/2-1, -ky/2]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [kx/2-1, -ky/2-4]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-1]
+          shift: [kx/2-1, -ky/2-4]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-4]
+          shift: [-kx/2+1, -ky/2-5]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-4]
+          shift: [-kx/2+1, -ky/2-5]
         - ref: thumbs_inner_cluster
           shift: [-kx/2-2, -ky/2-3]
         - ref: thumbs_inner_cluster
