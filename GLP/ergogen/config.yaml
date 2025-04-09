@@ -22,7 +22,7 @@ units:
   switchplate_encoder_cutout_y: 13.5
 points:
   mirror: &mirror
-    ref: matrix_inner_num
+    ref: matrix_inner_top
     distance: 5kx
   zones:
     matrix:
@@ -80,9 +80,6 @@ points:
         top:
           row_net: row1
           tags: [switch_top]
-        num:
-          row_net: row0
-          tags: [switch_bottom]
     thumbs:
       key:
         tags: [switch]
@@ -104,15 +101,15 @@ points:
         layer:
           key:
             spread: 22
-            splay: -5
-            stagger: -1
+            splay: -15
+            stagger: -2
             shift: [0,0]
             row_net: row4 
             column_net: col4
         space:
           key:
             spread: 22
-            splay: -15
+            splay: -10
             stagger:  -3
             width: 1kx
             row_net: row4
@@ -131,7 +128,7 @@ points:
             width: scrollwheel_width
             height: scrollwheel_height
             name: scrollwheel
-            shift: [22.5,4] 
+            shift: [22.5,-1] 
       rows:
         enc:
           row_net: row2
@@ -143,7 +140,7 @@ points:
           key:
             tags: [encoder]
             column_net: col5
-            shift: [22.5,4]
+            shift: [22.5,-1]
             name: encoder
             width: encoder_width
             height: encoder_height
@@ -152,7 +149,7 @@ points:
           row_net: row2
     mcu:
       anchor:
-        ref: matrix_inner_num
+        ref: matrix_inner_top
       columns:
         mcu:
           key:
@@ -166,28 +163,36 @@ outlines:
     - what: polygon
       fillet: 0.99
       points:
-        - ref: matrix_outer_num
+        - ref: matrix_outer_top
           shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_outer_top
+          shift: [kx/2-1, ky/2+1]
 
-        - ref: matrix_pinky_num
+        - ref: matrix_pinky_top
           shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_pinky_top
+          shift: [kx/2-1, ky/2+1]
 
-        - ref: matrix_ring_num
+        - ref: matrix_ring_top
           shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_ring_top
+          shift: [kx/2-1, ky/2+1]
 
-        - ref: matrix_middle_num
+        - ref: matrix_middle_top
           shift: [-kx/2-1, ky/2+1]
-        - ref: matrix_middle_num
-          shift: [+kx/2+1, ky/2+1]
+        - ref: matrix_middle_top
+          shift: [kx/2+1, ky/2+1]
 
-        - ref: matrix_index_num
+        - ref: matrix_index_top
+          shift: [-kx/2+1, ky/2+1]
+        - ref: matrix_index_top
           shift: [kx/2+1, ky/2+1]
 
 
-        - ref: matrix_inner_num
-          shift: [kx/2+2, ky/2]
-        - ref: matrix_inner_num
-          shift: [kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
+        - ref: matrix_inner_top
+          shift: [-kx/2+2, ky/2+1]
+        - ref: matrix_inner_top
+          shift: [kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-1]
         - ref: matrix_inner_home
           shift: [kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-2]
         - ref: matrix_inner_home
@@ -220,42 +225,50 @@ outlines:
     - what: polygon
       fillet: 0.99
       points:
-        - ref: matrix_outer_num
+        - ref: matrix_outer_top
           shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_outer_top
+          shift: [kx/2-1, ky/2+1]
 
-        - ref: matrix_pinky_num
+        - ref: matrix_pinky_top
           shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_pinky_top
+          shift: [kx/2-1, ky/2+1]
 
-        - ref: matrix_ring_num
+        - ref: matrix_ring_top
           shift: [-kx/2-1, ky/2+1]
+        - ref: matrix_ring_top
+          shift: [kx/2-1, ky/2+1]
 
-        - ref: matrix_middle_num
+        - ref: matrix_middle_top
           shift: [-kx/2-1, ky/2+1]
-        - ref: matrix_middle_num
-          shift: [+kx/2+1, ky/2+1]
-
-        - ref: matrix_index_num
+        - ref: matrix_middle_top
           shift: [kx/2+1, ky/2+1]
 
-        - ref: matrix_inner_num
-          shift: [kx/2-2+mcu_padding+mcu_width+0.25+2, ky/2]
+        - ref: matrix_index_top
+          shift: [-kx/2+1, ky/2+1]
+        - ref: matrix_index_top
+          shift: [kx/2+1, ky/2+1]
+
+        - ref: matrix_inner_top
+          shift: [kx/2-1+mcu_padding+mcu_width+0.25+2, ky/2+1]
         - ref: matrix_inner_home
-          shift: [-kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-2]
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
         - ref: matrix_inner_home
-          shift: [kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2-2.2]
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
         - ref: matrix_inner_bottom
-          shift: [kx/2+2+mcu_padding+mcu_width+0.25+2, ky/2]
+          shift: [kx/2+2mcu_padding+mcu_width+0.25+2, ky/2-1]
         - ref: matrix_inner_bottom
-          shift: [kx/2+2+mcu_padding+mcu_width+0.25+2, -ky/2-2]
+          shift: [kx/2+1.5+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1,-ky/2-4]
+          shift: [kx/2+1,-ky/2-1]
         - ref: thumbs_space_cluster
-          shift: [kx/2-3, -ky/2-4]
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-5]
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-5]
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
           shift: [-kx/2+1, -ky/2-3]
         - ref: thumbs_home_cluster
@@ -323,7 +336,7 @@ pcbs:
           rotate: 180
       diode_main:
         what: diode_tht_sod123
-        where: /^matrix_(?!(?:mod|bottom|home|top|num))./
+        where: /^matrix_(?!(?:mod|bottom|home|top))./
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
@@ -376,7 +389,7 @@ pcbs:
       controller:
         what: mcu_supermini_nrf52840
         where: 
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22.5,-8]
         adjust:
           rotate: 0
@@ -410,7 +423,7 @@ pcbs:
       battery_pads:
         what: backlog/infused-kim/pads
         where:
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22, 6.5]
         params:
           pads: 2
@@ -421,7 +434,7 @@ pcbs:
       niceview:
         what: display_nice_view
         where: 
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22.5,-10]
         params:
           VCC: VCC
@@ -443,7 +456,7 @@ pcbs:
       battery:
         what: battery_connector_molex_pico_ezmate_1x02
         where: 
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22.5,-2]
         params:
           side: B
@@ -453,7 +466,7 @@ pcbs:
       battery_icon:
         what: backlog/infused-kim/icon_bat
         where:
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22.5,3]
         params:
           side: B
@@ -531,7 +544,7 @@ pcbs:
       battery_text:
         what: utility_text
         where:
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22.5, -7]
         params:
           mirrored: true
@@ -544,7 +557,7 @@ pcbs:
       mcu_text:
         what: utility_text
         where:
-          ref: matrix_inner_num
+          ref: matrix_inner_top
           shift: [22.5, -5]
           rotate: 90
         params:
