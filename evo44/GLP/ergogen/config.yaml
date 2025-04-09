@@ -100,8 +100,8 @@ points:
             stagger: 1
         layer:
           key:
-            spread: 22
-            splay: -15
+            spread: 23
+            splay: -10
             stagger: -2
             shift: [0,0]
             row_net: row4 
@@ -325,7 +325,7 @@ outlines:
 pcbs:
   left:
     template: kicad8
-    outlines.main.outline: board_outline
+    outlines.main.outline: board_outline_left
     footprints:
       gateron_hotswap:
         what: switch_gateron_ks27_ks33
