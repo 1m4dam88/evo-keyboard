@@ -308,7 +308,7 @@ outlines:
   screen_cutout:
     - what: rectangle
       where: [mcu]
-      size: [50, 21]
+      size: [55, 21]
       fillet: 2
       bound: 
   switchplate:
