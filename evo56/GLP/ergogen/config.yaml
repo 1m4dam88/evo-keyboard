@@ -88,7 +88,7 @@ points:
         tags: [switch]
       anchor:
         ref: matrix_index_bottom
-        shift: [-25, -23]
+        shift: [-23, -23.5]
       columns:
         inner:
           key:
@@ -104,7 +104,7 @@ points:
         layer:
           key:
             spread: 22
-            splay: -15
+            splay: -5
             stagger: -2
             shift: [0,0]
             row_net: row4 
@@ -112,7 +112,7 @@ points:
         space:
           key:
             spread: 20
-            splay: -10
+            splay: -8
             stagger:  -1
             width: 1kx
             row_net: row4
@@ -131,7 +131,7 @@ points:
             width: scrollwheel_width
             height: scrollwheel_height
             name: scrollwheel
-            shift: [22.5,-1] 
+            shift: [22.5,.4kx] 
       rows:
         enc:
           row_net: row2
@@ -143,7 +143,7 @@ points:
           key:
             tags: [encoder]
             column_net: col5
-            shift: [22.5,-1]
+            shift: [22.5,.4kx]
             name: encoder
             width: encoder_width
             height: encoder_height
@@ -164,7 +164,7 @@ points:
 outlines:
   board_outline_left:
     - what: polygon
-      fillet: 0.99
+      fillet: 2
       points:
         - ref: matrix_outer_num
           shift: [-kx/2-1, ky/2+1]
@@ -172,24 +172,24 @@ outlines:
           shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_pinky_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_pinky_num
           shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_ring_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_ring_num
           shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_middle_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_middle_num
-          shift: [kx/2+1, ky/2+1]
+          shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_index_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_index_num
-          shift: [kx/2+1, ky/2+1] 
+          shift: [kx/2-1, ky/2+1] 
 
         - ref: matrix_inner_num
           shift: [-kx/2+1, ky/2]
@@ -200,34 +200,34 @@ outlines:
         - ref: matrix_inner_home
           shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
         - ref: matrix_inner_bottom
-          shift: [kx/2+2mcu_padding+mcu_width+0.25+2, ky/2-1]
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
         - ref: matrix_inner_bottom
           shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1,-ky/2-1]
+          shift: [kx/2+2.5,ky/2-2]
         - ref: thumbs_space_cluster
+          shift: [kx/2+2.5, -ky/2-1]
+        - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-2]
-        - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-2]
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-5]
+          shift: [-kx/2+1, -ky/2-3]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-5]
+          shift: [-kx/2+1, -ky/2-3]
         - ref: thumbs_inner_cluster
-          shift: [-kx/2-2, -ky/2-3]
+          shift: [-kx/2-2, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [-kx/2-3 ,  -ky/2-3]
+          shift: [-kx/2-2, -ky/2-1]
         - ref: matrix_pinky_bottom
-          shift: [-0.5px, -0.9py]
+          shift: [kx/2-1, -ky/2-6]
         - ref: matrix_outer_bottom
-          shift: [-0.5px, -0.5py]
+          shift: [-kx/2-1 , -ky/2-3]
 
   switchplate_base:
     - what: polygon
-      fillet: 0.99
+      fillet: 2
       points:
         - ref: matrix_outer_num
           shift: [-kx/2-1, ky/2+1]
@@ -235,24 +235,24 @@ outlines:
           shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_pinky_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_pinky_num
           shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_ring_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_ring_num
           shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_middle_num
-          shift: [-kx/2-1, ky/2+1]
+          shift: [-kx/2+1, ky/2+1]
         - ref: matrix_middle_num
-          shift: [kx/2+1, ky/2+1]
+          shift: [kx/2-1, ky/2+1]
 
         - ref: matrix_index_num
           shift: [-kx/2+1, ky/2+1]
         - ref: matrix_index_num
-          shift: [kx/2+1, ky/2+1] 
+          shift: [kx/2-1, ky/2+1] 
 
         - ref: matrix_inner_num
           shift: [-kx/2+1, ky/2]
@@ -268,25 +268,25 @@ outlines:
           shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1,-ky/2]
+          shift: [kx/2+2.5,ky/2-2]
         - ref: thumbs_space_cluster
+          shift: [kx/2+2.5, -ky/2-1]
+        - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-5]
-        - ref: thumbs_layer_cluster
-          shift: [kx/2-1, -ky/2-5]
+          shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-5]
+          shift: [-kx/2+1, -ky/2-3]
         - ref: thumbs_home_cluster
-          shift: [-kx/2+1, -ky/2-5]
+          shift: [-kx/2+1, -ky/2-3]
         - ref: thumbs_inner_cluster
-          shift: [-kx/2-2, -ky/2-2]
+          shift: [-kx/2-2, -ky/2-1]
         - ref: thumbs_inner_cluster
-          shift: [-kx/2-3 ,  -ky/2-2]
+          shift: [-kx/2-2, -ky/2-1]
         - ref: matrix_pinky_bottom
-          shift: [kx/2-1, -ky/2-2]
+          shift: [kx/2-1, -ky/2-6]
         - ref: matrix_outer_bottom
-          shift: [-kx/2-1 ,  -ky/2-2]
+          shift: [-kx/2-1 , -ky/2-3]
 
   switch_cutout:
     - what: rectangle
@@ -329,7 +329,7 @@ outlines:
 pcbs:
   left:
     template: kicad8
-    outlines.main.outline: board_outline
+    outlines.main.outline: board_outline_left
     footprints:
       gateron_hotswap:
         what: switch_gateron_ks27_ks33
@@ -408,22 +408,22 @@ pcbs:
           VCC: VCC
           P21: ENCA
           P20: ENCB
-          P19: row0
-          P18: row1
-          P15: row2
-          P14: row3
-          P16: row4
-          P10: row5
+          P19: col0
+          P18: col1
+          P15: col2
+          P14: col3
+          P16: col4
+          P10: col5
           P1: BAT_GND
           P0: P0
           P2: SDA
           P3: SCL
           P4: CS
-          P5: col0
-          P6: col1
-          P7: col2
-          P8: col3
-          P9: col4
+          P5: row0
+          P6: row1
+          P7: row2
+          P8: row3
+          P9: row4
           P101: ENCC
           P102: ENCD
           reverse_mount: true
@@ -432,10 +432,10 @@ pcbs:
         what: backlog/infused-kim/pads
         where:
           ref: matrix_inner_num
-          shift: [22, 6.5]
+          shift: [22.5, 7]
         params:
           pads: 2
-          net_1: BAT_RAW
+          net_1: ON_P
           net_2: BAT_GND
           label_1: '+'
           label_2: '-'
@@ -461,7 +461,7 @@ pcbs:
           from: ON_P
           to: BAT_RAW
           invert_behavior: false
-      battery:
+      battery_jc:
         what: battery_connector_molex_pico_ezmate_1x02
         where: 
           ref: matrix_inner_num
@@ -471,6 +471,17 @@ pcbs:
           BAT_P: BAT_GND
           BAT_N: ON_P
           include_silkscreen: false
+      battery_ph:
+        what: battery_connector_jst_ph_2
+        where:
+          ref: matrix_inner_home
+          shift: [25.6, 3.5]
+          rotate: 270
+        params:
+          side: F
+          BAT_P: ON_P
+          BAT_N: BAT_GND
+          include_silkscreen: true
       battery_icon:
         what: backlog/infused-kim/icon_bat
         where:
@@ -492,8 +503,8 @@ pcbs:
       left_text:
         what: utility_text
         where:
-          ref: matrix_inner_bottom
-          shift: [20,3]
+          ref: matrix_inner_home
+          shift: [22.5,0]
         params:
           text: "Left Side"
           thickness: 1
@@ -503,8 +514,8 @@ pcbs:
       watermark:
         what: utility_text
         where:
-          ref: matrix_inner_bottom
-          shift: [20,-2]
+          ref: matrix_inner_home
+          shift: [22.5,-4]
         params:
           text: "Designed by imadam"
           thickness: 0
@@ -578,8 +589,8 @@ pcbs:
       encoder_text:
         what: utility_text
         where:
-          ref: matrix_inner_home
-          shift: [21.5, -3]
+          ref: matrix_inner_bottom
+          shift: [22.5, -1]
         params:
           side: F
           text: "Encoder"
