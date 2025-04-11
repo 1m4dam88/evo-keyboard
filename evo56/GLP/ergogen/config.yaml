@@ -1,3 +1,4 @@
+
 meta:
   engine: 4.1.0
 units:
@@ -89,7 +90,7 @@ points:
         tags: [switch]
       anchor:
         ref: matrix_index_bottom
-        shift: [-24, -23.5]
+        shift: [-23.5, -23.5]
       columns:
         inner:
           key:
@@ -602,8 +603,28 @@ pcbs:
       screw_1:
         what: mounting_hole_plated
         where:
-          ref: matrix_pinky_top
-          shift: [3,3]
+          ref: matrix_outer_num
+          shift: [10,-5]
+      screw_2:
+        what: mounting_hole_plated
+        where:
+          ref: matrix_outer_home
+          shift: [10,-5]
+      screw_3:
+        what: mounting_hole_plated
+        where:
+          ref: matrix_index_num
+          shift: [10,-5]
+      screw_4:
+        what: mounting_hole_plated
+        where:
+          ref: matrix_index_home
+          shift: [10,-5]
+      screw_5:
+        what: mounting_hole_plated
+        where:
+          ref: thumbs_layer_cluster
+          shift: [11,15]
       screen_mounting_left:
         what: mounting_hole_plated
         where:
