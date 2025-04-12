@@ -523,6 +523,18 @@ pcbs:
           thickness: 0
           width: 1
           height: 1    
+      website:
+        what: utility_text
+        where:
+          ref: thumbs_home_cluster
+          shift: [0,-6]
+          rotate: -2.1
+        params:
+          text: "imadam.xyz"
+          thickness: 1
+          knockout: true
+          width: 2
+          height: 2
       bottom_text:
         what: utility_text
         where:
