@@ -270,9 +270,9 @@ outlines:
           shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1,ky/2-2]
+          shift: [kx/2+1.5,ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [kx/2+1, -ky/2-1]
+          shift: [kx/2+1.5, -ky/2-1]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
@@ -437,6 +437,7 @@ pcbs:
           shift: [22, 7]
         params:
           pads: 2
+          space: 5
           net_1: ON_P
           net_2: BAT_GND
           label_1: '+'
@@ -457,7 +458,6 @@ pcbs:
         where: 
           ref: matrix_inner_bottom
           shift: [30.5,-0]
-          rotate: -1
         params:
           side: B
           from: ON_P
