@@ -49,7 +49,7 @@ points:
           rows.mod.skip: true
         middle:
           key:
-            stagger: 4
+            stagger: 3
             column_net: col3
           rows:
             mod:
@@ -90,7 +90,7 @@ points:
         tags: [switch]
       anchor:
         ref: matrix_index_bottom
-        shift: [-23.5, -23.5]
+        shift: [-22.5, -23.5]
       columns:
         inner:
           key:
@@ -163,6 +163,31 @@ points:
             height: mcu_width
             rotate: -90
             shift: [22, -8]
+    screw_top_left:
+      anchor:
+        ref: matrix_outer_num
+        shift: [10,-5]
+      columns.screw.key.tags: [screw]
+    screw_bottom_left:
+      anchor:
+        ref: matrix_outer_home
+        shift: [10,-5]
+      columns.screw.key.tags: [screw]
+    screw_top_right:
+      anchor:
+        ref: matrix_index_num
+        shift: [10,-5]
+      columns.screw.key.tags: [screw]
+    screw_bottom_right:
+      anchor:
+        ref: matrix_index_home
+        shift: [10,-5]
+      columns.screw.key.tags: [screw]
+    screw_thumb:
+      anchor:
+        ref: thumbs_layer_cluster
+        shift: [11,15]
+      columns.screw.key.tags: [screw]
 outlines:
   board_outline_left:
     - what: polygon
@@ -207,9 +232,9 @@ outlines:
           shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1.5,ky/2-2]
+          shift: [kx/2+2.5,ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [kx/2+1.5, -ky/2-1]
+          shift: [kx/2+2.5, -ky/2-1]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
@@ -270,9 +295,9 @@ outlines:
           shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, -ky/2-10]
 
         - ref: thumbs_space_cluster
-          shift: [kx/2+1.5,ky/2-2]
+          shift: [kx/2+2,ky/2-2]
         - ref: thumbs_space_cluster
-          shift: [kx/2+1.5, -ky/2-1]
+          shift: [kx/2+2, -ky/2-1]
         - ref: thumbs_layer_cluster
           shift: [kx/2-1, -ky/2-1]
         - ref: thumbs_layer_cluster
@@ -310,7 +335,7 @@ outlines:
   screen_cutout:
     - what: rectangle
       where: [mcu]
-      size: [55, 21]
+      size: [65, 21]
       fillet: 2
       bound: 
   switchplate:
@@ -366,7 +391,7 @@ pcbs:
         what: diode_tht_sod123
         where:
           ref: scrollwheel
-          shift: [0, 8]
+          shift: [-0.5, 8]
         params: 
           from: "{{colrow}}"
           to: "{{row_net}}"
@@ -380,6 +405,7 @@ pcbs:
           A: ENCA
           B: GND
           C: ENCB
+          side: F
         adjust:
           rotate: 270
           shift: [-0.5,0]
@@ -393,6 +419,8 @@ pcbs:
           A: ENCC
           B: GND
           C: ENCD
+          mounting_holes_position: 7.5
+          side: F
         adjust:
           rotate: 0
           shift: [0,1.2]
@@ -457,7 +485,7 @@ pcbs:
         what: power_switch_smd_side 
         where: 
           ref: matrix_inner_bottom
-          shift: [30.5,-0]
+          shift: [30.5,-4]
         params:
           side: B
           from: ON_P
@@ -495,159 +523,150 @@ pcbs:
         what: reset_switch_smd_side
         where: 
           ref: matrix_inner_bottom
-          shift: [30, -10]
+          shift: [30, -14]
           rotate: -90
         params:
           include_bosses: true
           from: RST
           to: GND
           side: B
-      left_text:
-        what: utility_text
-        where:
-          ref: matrix_inner_home
-          shift: [22,0]
-        params:
-          text: "Left Side"
-          thickness: 1
-          knockout: true
-          width: 2
-          height: 2    
-      watermark:
-        what: utility_text
-        where:
-          ref: matrix_inner_home
-          shift: [22,-4]
-        params:
-          text: "Designed by imadam"
-          thickness: 0
-          width: 1
-          height: 1    
-      website:
-        what: utility_text
-        where:
-          ref: thumbs_home_cluster
-          shift: [0,-6]
-          rotate: -2.1
-        params:
-          text: "imadam.xyz"
-          thickness: 1
-          knockout: true
-          width: 2
-          height: 2
-      bottom_text:
-        what: utility_text
-        where:
-          ref: thumbs_layer_cluster
-          shift: [0,-6]
-        params:
-          mirrored: true
-          side: B
-          text: "Bottom"
-          thickness: 1
-          knockout: true
-          width: 1.5
-          height: 1.5
-      reset_text:
-        what: utility_text
-        where:
-          ref: matrix_inner_bottom
-          shift: [23.5 , -10]
-        params:
-          mirrored: true
-          side: B
-          text: "← Reset"
-          thickness: 1
-          knockout: true
-          width: 1
-          height: 1
-      power_text:
-        what: utility_text
-        where:
-          ref: matrix_inner_bottom
-          shift: [24.5, 0]
-        params:
-          mirrored: true
-          side: B
-          text: "← Power"
-          thickness: 1
-          knockout: true
-          width: 1
-          height: 1
-      battery_text:
-        what: utility_text
-        where:
-          ref: matrix_inner_num
-          shift: [22, -7]
-        params:
-          mirrored: true
-          side: B
-          text: "Battery"
-          thickness: 1
-          knockout: true
-          width: 1
-          height: 1
-      mcu_text:
-        what: utility_text
-        where:
-          ref: matrix_inner_num
-          shift: [22, -5]
-          rotate: 90
-        params:
-          side: F
-          text: "Controller"
-          thickness: 1
-          knockout: true
-          width: 2
-          height: 2
-      encoder_text:
-        what: utility_text
-        where:
-          ref: matrix_inner_bottom
-          shift: [22, -1]
-        params:
-          side: F
-          text: "Encoder"
-          thickness: 1
-          knockout: true
-          width: 1.5
-          height: 1.5
-      screw_1:
+          #      left_text:
+          #        what: utility_text
+          #        where:
+          #          ref: thumbs_space_cluster
+          #          shift: [0,-7]
+          #          rotate: -0.9
+          #        params:
+          #          text: "Left Side"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 2
+          #          height: 2    
+          #          face: "CaskaydiaCove NF"
+          #      website:
+          #        what: utility_text
+          #        where:
+          #          ref: thumbs_home_cluster
+          #          shift: [0,-8]
+          #          rotate: -2.1
+          #        params:
+          #          text: "imadam.xyz"
+          #          thickness: 1
+          #          width: 2
+          #          height: 2
+          #          face: "CaskaydiaCove NF"
+          #          layer: Mask
+          #      bottom_text:
+          #        what: utility_text
+          #        where:
+          #          ref: thumbs_layer_cluster
+          #          shift: [0,-6]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "Bottom"
+          #          thickness: 1
+          #          knockout: true
+          #          face: "CaskaydiaCove NF"
+          #          width: 1.5
+          #          height: 1.5
+          #      reset_text:
+          #        what: utility_text
+          #        where:
+          #          ref: matrix_inner_bottom
+          #          shift: [23.5 , -14]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "← Reset"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1
+          #          height: 1
+          #          face: "CaskaydiaCove NF"
+          #      power_text:
+          #        what: utility_text
+          #        where:
+          #          ref: matrix_inner_bottom
+          #          shift: [24, -4]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "← Power"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1
+          #          height: 1
+          #          face: "CaskaydiaCove NF"
+          #      battery_text:
+          #        what: utility_text
+          #        where:
+          #          ref: matrix_inner_num
+          #          shift: [22, -7]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "Battery"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1
+          #          height: 1
+          #          face: "CaskaydiaCove NF"
+          #      mcu_text:
+          #        what: utility_text
+          #        where:
+          #          ref: matrix_inner_num
+          #          shift: [22, -5]
+          #          rotate: 90
+          #        params:
+          #          side: F
+          #          text: "Controller"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 2
+          #          height: 2
+          #          face: "CaskaydiaCove NF"
+          #      encoder_text:
+          #        what: utility_text
+          #        where:
+          #          ref: encoder
+          #          shift: [-0.5,1]
+          #        params:
+          #          side: F
+          #          text: "Encoder"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1.5
+          #          height: 1.5
+          #          face: "CaskaydiaCove NF"
+          #      keyboard_text:
+          #        what:
+          #          utility_text
+          #        where:
+          #          ref: matrix_outer_bottom
+          #          shift: [10,-10]
+          #          rotate: -4.5
+          #        params:
+          #          text: "evo56 GLP v1.0"
+          #          thickness: 1
+          #          width: 2
+          #          height: 2
+          #          face: "CaskaydiaCove NF"
+          #          layer: Mask
+      screw_holes:
         what: mounting_hole_plated
-        where:
-          ref: matrix_outer_num
-          shift: [10,-5]
-      screw_2:
-        what: mounting_hole_plated
-        where:
-          ref: matrix_outer_home
-          shift: [10,-5]
-      screw_3:
-        what: mounting_hole_plated
-        where:
-          ref: matrix_index_num
-          shift: [10,-5]
-      screw_4:
-        what: mounting_hole_plated
-        where:
-          ref: matrix_index_home
-          shift: [10,-5]
-      screw_5:
-        what: mounting_hole_plated
-        where:
-          ref: thumbs_layer_cluster
-          shift: [11,15]
+        where: [screw]
       screen_mounting_left:
         what: mounting_hole_plated
         where:
           ref: matrix_inner_home
-          shift: [15, 5]
+          shift: [14, 0]
         params:
           drill: 2.2
       screen_mounting_right:
         what: mounting_hole_plated
         where:
           ref: matrix_inner_home
-          shift: [30, 5]
+          shift: [30, 0]
         params:
           drill: 2.2
