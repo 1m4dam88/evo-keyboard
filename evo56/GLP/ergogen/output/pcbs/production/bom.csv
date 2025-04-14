@@ -1,0 +1,9 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+CONN1,battery_connector_molex_pico_ezmate_1x02,1,,
+"D1, D10, D11, D12, D13, D14, D15, D16, D17, D18, D19, D2, D20, D21, D22, D23, D24, D25, D26, D27, D28, D29, D3, D4, D5, D6, D7, D8, D9",diode_tht_sod123,29,,
+"H1, H11, H12, H2, H3, H4, H5",mounting_hole_plated,7,,
+JST1,battery_connector_jst_ph_2,1,,
+PAD1,pads,1,,
+PWR1,power_switch_smd_side,1,,
+"RE1, RE2",rotary_encoder_ec11_ec12,2,,
+RST1,reset_switch_smd_side,1,,

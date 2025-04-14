@@ -49,7 +49,7 @@ points:
           rows.mod.skip: true
         middle:
           key:
-            stagger: 4
+            stagger: 3
             column_net: col3
           rows:
             mod:

@@ -252,6 +252,69 @@ outlines:
         - ref: matrix_outer_bottom
           shift: [-kx/2-1 , -ky/2-3]
 
+  board_outline_right:
+    - what: polygon
+      fillet: 2
+      points:
+        - ref: mirror_matrix_outer_num
+          shift: [-kx/2-1, ky/2+1]
+        - ref: mirror_matrix_outer_num
+          shift: [kx/2-1, ky/2+1]
+
+        - ref: mirror_matrix_pinky_num
+          shift: [-kx/2+1, ky/2+1]
+        - ref: mirror_matrix_pinky_num
+          shift: [kx/2-1, ky/2+1]
+
+        - ref: mirror_matrix_ring_num
+          shift: [-kx/2+1, ky/2+1]
+        - ref: mirror_matrix_ring_num
+          shift: [kx/2-1, ky/2+1]
+
+        - ref: mirror_matrix_middle_num
+          shift: [-kx/2+1, ky/2+1]
+        - ref: mirror_matrix_middle_num
+          shift: [kx/2-1, ky/2+1]
+
+        - ref: mirror_matrix_index_num
+          shift: [-kx/2+1, ky/2+1]
+        - ref: mirror_matrix_index_num
+          shift: [kx/2-1, ky/2+1] 
+
+        - ref: mirror_matrix_inner_num
+          shift: [-kx/2+1, ky/2]
+        - ref: mirror_matrix_inner_num
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2]
+        - ref: mirror_matrix_inner_home
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
+        - ref: mirror_matrix_inner_home
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
+        - ref: mirror_matrix_inner_bottom
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, ky/2-1]
+        - ref: mirror_matrix_inner_bottom
+          shift: [kx/2+1+mcu_padding+mcu_width+0.25+2, -ky/2-10]
+
+        - ref: mirror_thumbs_space_cluster
+          shift: [kx/2+2.5,ky/2-2]
+        - ref: mirror_thumbs_space_cluster
+          shift: [kx/2+2.5, -ky/2-1]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [kx/2-1, -ky/2-1]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [kx/2-1, -ky/2-1]
+        - ref: mirror_thumbs_home_cluster
+          shift: [-kx/2+1, -ky/2-3]
+        - ref: mirror_thumbs_home_cluster
+          shift: [-kx/2+1, -ky/2-3]
+        - ref: mirror_thumbs_inner_cluster
+          shift: [-kx/2-2, -ky/2-1]
+        - ref: mirror_thumbs_inner_cluster
+          shift: [-kx/2-2, -ky/2-1]
+        - ref: mirror_matrix_pinky_bottom
+          shift: [kx/2-1, -ky/2-6]
+        - ref: mirror_matrix_outer_bottom
+          shift: [-kx/2-1 , -ky/2-3]
+
   switchplate_base:
     - what: polygon
       fillet: 2
@@ -667,6 +730,322 @@ pcbs:
         what: mounting_hole_plated
         where:
           ref: matrix_inner_home
+          shift: [30, 0]
+        params:
+          drill: 2.2
+  right:
+    template: kicad8
+    outlines.main.outline: board_outline_right
+    footprints:
+      gateron_hotswap:
+        what: switch_gateron_ks27_ks33
+        where: [/^mirror_matrix_.*/,/^mirror_thumbs_.*/]
+        params:
+          include_socket_silks: true
+          hotswap: true
+          solder: false
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          rotate: 180
+      diode_main:
+        what: diode_tht_sod123
+        where: /^mirror_matrix_(?!(?:mod|bottom|home|top|num))./
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          rotate: 0
+          shift: [0,-6]
+      diode_thumb:
+        what: diode_tht_sod123
+        where: /^mirror_thumbs_.*/
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          rotate: 0
+          shift: [1,10]
+      scroll_diode:
+        what: diode_tht_sod123
+        where:
+          ref: mirror_scrollwheel
+          shift: [-0.5, 8]
+        params: 
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+      encoder:
+        what: rotary_encoder_ec11_ec12
+        where:
+          ref: mirror_encoder
+        params:
+          S1: "{{column_net}}"
+          S2: scrollwheel_enc
+          A: ENCA
+          B: GND
+          C: ENCB
+          side: F
+        adjust:
+          rotate: 270
+          shift: [-0.5,0]
+      encoder2:
+        what: rotary_encoder_ec11_ec12
+        where:
+          ref: mirror_thumbs_inner_cluster
+        params:
+          S1: "{{column_net}}"
+          S2: "{{colrow}}"
+          A: ENCC
+          B: GND
+          C: ENCD
+          mounting_holes_position: 7.5
+          side: F
+        adjust:
+          rotate: 0
+          shift: [0,1.2]
+      controller:
+        what: mcu_supermini_nrf52840
+        where: 
+          ref: mirror_matrix_inner_num
+          shift: [22,-8]
+        adjust:
+          rotate: 0
+        params:
+          RAW: BAT_RAW
+          GND: GND
+          RST: RST
+          VCC: VCC
+          P21: ENCA
+          P20: ENCB
+          P19: col0
+          P18: col1
+          P15: col2
+          P14: col3
+          P16: col4
+          P10: col5
+          P1: BAT_GND
+          P0: P0
+          P2: SDA
+          P3: SCL
+          P4: CS
+          P5: row0
+          P6: row1
+          P7: row2
+          P8: row3
+          P9: row4
+          P101: ENCC
+          P102: ENCD
+          reverse_mount: true
+          include_extra_pins: true
+      battery_pads:
+        what: backlog/infused-kim/pads
+        where:
+          ref: mirror_matrix_inner_num
+          shift: [22, 7]
+        params:
+          pads: 2
+          space: 5
+          net_1: ON_P
+          net_2: BAT_GND
+          label_1: '+'
+          label_2: '-'
+      niceview:
+        what: display_nice_view
+        where: 
+          ref: mirror_matrix_inner_num
+          shift: [22,-10]
+        params:
+          VCC: VCC
+          GND: GND
+          CS: CS
+          SCK: SCL
+          MOSI: SDA
+      slider:
+        what: power_switch_smd_side 
+        where: 
+          ref: mirror_matrix_inner_bottom
+          shift: [30.5,-4]
+        params:
+          side: B
+          from: ON_P
+          to: BAT_RAW
+          invert_behavior: false
+      battery_jc:
+        what: battery_connector_molex_pico_ezmate_1x02
+        where: 
+          ref: mirror_matrix_inner_num
+          shift: [22,-2]
+        params:
+          side: B
+          BAT_P: BAT_GND
+          BAT_N: ON_P
+          include_silkscreen: false
+      battery_ph:
+        what: battery_connector_jst_ph_2
+        where:
+          ref: mirror_matrix_inner_home
+          shift: [25.6, 3.5]
+          rotate: 270
+        params:
+          side: F
+          BAT_P: ON_P
+          BAT_N: BAT_GND
+          include_silkscreen: true
+      battery_icon:
+        what: backlog/infused-kim/icon_bat
+        where:
+          ref: mirror_matrix_inner_num
+          shift: [22,3]
+        params:
+          side: B
+      reset_switch:
+        what: reset_switch_smd_side
+        where: 
+          ref: mirror_matrix_inner_bottom
+          shift: [30, -14]
+          rotate: -90
+        params:
+          include_bosses: true
+          from: RST
+          to: GND
+          side: B
+          #      left_text:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_thumbs_space_cluster
+          #          shift: [0,-7]
+          #          rotate: -0.9
+          #        params:
+          #          text: "Left Side"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 2
+          #          height: 2    
+          #          face: "CaskaydiaCove NF"
+          #      website:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_thumbs_home_cluster
+          #          shift: [0,-8]
+          #          rotate: -2.1
+          #        params:
+          #          text: "imadam.xyz"
+          #          thickness: 1
+          #          width: 2
+          #          height: 2
+          #          face: "CaskaydiaCove NF"
+          #          layer: Mask
+          #      bottom_text:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_thumbs_layer_cluster
+          #          shift: [0,-6]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "Bottom"
+          #          thickness: 1
+          #          knockout: true
+          #          face: "CaskaydiaCove NF"
+          #          width: 1.5
+          #          height: 1.5
+          #      reset_text:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_matrix_inner_bottom
+          #          shift: [23.5 , -14]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "← Reset"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1
+          #          height: 1
+          #          face: "CaskaydiaCove NF"
+          #      power_text:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_matrix_inner_bottom
+          #          shift: [24, -4]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "← Power"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1
+          #          height: 1
+          #          face: "CaskaydiaCove NF"
+          #      battery_text:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_matrix_inner_num
+          #          shift: [22, -7]
+          #        params:
+          #          mirrored: true
+          #          side: B
+          #          text: "Battery"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1
+          #          height: 1
+          #          face: "CaskaydiaCove NF"
+          #      mcu_text:
+          #        what: utility_text
+          #        where:
+          #          ref: mirror_matrix_inner_num
+          #          shift: [22, -5]
+          #          rotate: 90
+          #        params:
+          #          side: F
+          #          text: "Controller"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 2
+          #          height: 2
+          #          face: "CaskaydiaCove NF"
+          #      encoder_text:
+          #        what: utility_text
+          #        where:
+          #          ref: encoder
+          #          shift: [-0.5,1]
+          #        params:
+          #          side: F
+          #          text: "Encoder"
+          #          thickness: 1
+          #          knockout: true
+          #          width: 1.5
+          #          height: 1.5
+          #          face: "CaskaydiaCove NF"
+          #      keyboard_text:
+          #        what:
+          #          utility_text
+          #        where:
+          #          ref: mirror_matrix_outer_bottom
+          #          shift: [10,-10]
+          #          rotate: -4.5
+          #        params:
+          #          text: "evo56 GLP v1.0"
+          #          thickness: 1
+          #          width: 2
+          #          height: 2
+          #          face: "CaskaydiaCove NF"
+          #          layer: Mask
+      screw_holes:
+        what: mounting_hole_plated
+        where: [screw]
+      screen_mounting_left:
+        what: mounting_hole_plated
+        where:
+          ref: mirror_matrix_inner_home
+          shift: [14, 0]
+        params:
+          drill: 2.2
+      screen_mounting_right:
+        what: mounting_hole_plated
+        where:
+          ref: mirror_matrix_inner_home
           shift: [30, 0]
         params:
           drill: 2.2
