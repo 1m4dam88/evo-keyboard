@@ -95,12 +95,12 @@ points:
         inner:
           key:
             row_net: row4
-            column_net: col2
+            column_net: col1
             shift: [2,0.0]
         home:
           key:
             row_net: row4
-            column_net: col3
+            column_net: col2
             shift: [2,0]
             stagger: 1
         layer:
@@ -110,7 +110,7 @@ points:
             stagger: -2
             shift: [0,0]
             row_net: row4 
-            column_net: col4
+            column_net: col3
         space:
           key:
             spread: 21
@@ -119,7 +119,7 @@ points:
             width: 1kx
             row_net: row4
             shift: [,]
-            column_net: col5
+            column_net: col4
       rows:
         cluster:
     scrollwheel:
@@ -136,7 +136,7 @@ points:
             shift: [22,.4kx] 
       rows:
         enc:
-          row_net: row2
+          row_net: row4
     encoder:
       anchor:
         ref: matrix_inner_bottom
@@ -151,7 +151,7 @@ points:
             height: encoder_height
       rows:
         enc:
-          row_net: row2
+          row_net: row4
     mcu:
       anchor:
         ref: matrix_inner_num
@@ -468,7 +468,7 @@ pcbs:
           A: ENCA
           B: GND
           C: ENCB
-          side: F
+          side: B
         adjust:
           rotate: 270
           shift: [-0.5,0]
@@ -483,7 +483,7 @@ pcbs:
           B: GND
           C: ENCD
           mounting_holes_position: 7.5
-          side: F
+          side: B
         adjust:
           rotate: 0
           shift: [0,1.2]
